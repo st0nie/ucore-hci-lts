@@ -15,7 +15,7 @@ RELEASE="$(rpm -E %fedora)"
 curl https://copr.fedorainfracloud.org/coprs/kwizart/kernel-longterm-6.6/repo/fedora-41/kwizart-kernel-longterm-6.6-fedora-41.repo -o /etc/yum.repos.d/kernel-lts.repo
 
 rpm-ostree cliwrap install-to-root /
-rpm-ostree override remove kernel kernel-{core,modules} \
+rpm-ostree override remove kernel kernel-{core,modules,modules-core} \
     --install kernel-longterm --install kernel-longterm-core \
     --install kernel-longterm-modules --install kernel-longterm-modules-extra && \
     ostree container commit
