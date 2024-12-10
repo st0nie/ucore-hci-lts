@@ -12,12 +12,13 @@ RELEASE="$(rpm -E %fedora)"
 # List of rpmfusion packages can be found here:
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
-# lts kernel
-rpm-ostree cliwrap install-to-root
+curl https://copr.fedorainfracloud.org/coprs/kwizart/kernel-longterm-6.6/repo/fedora-41/kwizart-kernel-longterm-6.6-fedora-41.repo -o /etc/yum.repos.d/kernel-lts.repo
 
-rpm-ostree override remove kernel kernel-{core,modules,modules-extra}
---install kernel-longterm --install kernel-longterm-core
---install kernel-longterm-modules --install kernel-longterm-modules-extra
+rpm-ostree cliwrap install-to-root /
+rpm-ostree override remove kernel kernel-{core,modules,modules-extra} \
+    --install kernel-longterm --install kernel-longterm-core \
+    --install kernel-longterm-modules --install kernel-longterm-modules-extra && \
+    ostree container commit
 
 # this installs a package from fedora repos
 # rpm-ostree install screen
