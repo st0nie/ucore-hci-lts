@@ -23,7 +23,7 @@ rpm-ostree override remove kernel kernel-{core,modules,modules-core} \
 
 # this installs a package from fedora repos
 # rpm-ostree install screen
-rpm-ostree install incus
+rpm-ostree install --disablerepo * --enablerepo 'copr:copr.fedorainfracloud.org:ganto:lxc4' incus
 
 # this would install a package from rpmfusion
 # rpm-ostree install vlc
