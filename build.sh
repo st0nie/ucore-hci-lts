@@ -14,7 +14,6 @@ RELEASE="$(rpm -E %fedora)"
 
 curl https://copr.fedorainfracloud.org/coprs/kwizart/kernel-longterm-6.6/repo/fedora-41/kwizart-kernel-longterm-6.6-fedora-41.repo -o /etc/yum.repos.d/kernel-lts.repo
 curl https://copr.fedorainfracloud.org/coprs/ganto/lxc4/repo/fedora-41/ganto-lxc4-fedora-41.repo -o /etc/yum.repos.d/incus.repo
-sed -i '2i priority=1' /etc/yum.repos.d/incus.repo
 
 rpm-ostree cliwrap install-to-root /
 rpm-ostree override remove kernel kernel-{core,modules,modules-core} \
@@ -24,7 +23,7 @@ rpm-ostree override remove kernel kernel-{core,modules,modules-core} \
 
 # this installs a package from fedora repos
 # rpm-ostree install screen
-rpm-ostree install incus
+rpm-ostree --enable 'copr:copr.fedorainfracloud.org:ganto:lxc4' install incus
 
 # this would install a package from rpmfusion
 # rpm-ostree install vlc
