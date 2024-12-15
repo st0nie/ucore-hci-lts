@@ -21,7 +21,6 @@ rpm-ostree override remove kernel kernel-{core,modules,modules-core} \
 
 # this installs a package from fedora repos
 # rpm-ostree install screen
-rpm-ostree install incus
 
 # this would install a package from rpmfusion
 # rpm-ostree install vlc
@@ -29,4 +28,3 @@ rpm-ostree install incus
 #### Example for enabling a System Unit File
 
 # systemctl enable podman.socket
-systemctl enable incus.service
