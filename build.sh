@@ -17,8 +17,7 @@ curl https://copr.fedorainfracloud.org/coprs/kwizart/kernel-longterm-6.6/repo/fe
 rpm-ostree cliwrap install-to-root /
 rpm-ostree override remove kernel kernel-{core,modules,modules-core} \
     --install kernel-longterm --install kernel-longterm-core \
-    --install kernel-longterm-modules --install kernel-longterm-modules-extra && \
-    ostree container commit
+    --install kernel-longterm-modules --install kernel-longterm-modules-extra
 
 # this installs a package from fedora repos
 # rpm-ostree install screen
